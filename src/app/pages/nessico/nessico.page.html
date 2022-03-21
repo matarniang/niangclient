@@ -1,0 +1,50 @@
+<ion-content class="mainbackground">
+  <div class="header">
+    <ion-toolbar>
+  <div class="container">
+  <div class="row">
+  <div class="col-8" style="margin-top: 5px;"><div class="title"><a (click)="dashboardPage()"><ion-icon name="arrow-back"></ion-icon></a></div>
+  </div>
+  <div class="col-4 text-right"><a class="pulse-animation notification-btn" (click)="notificationsPage()"><i class="far fa-bell"></i></a> <div class="profile-pic" (click)="profilePage()"><img src="../../../assets/images/user-profile.jpg" class="width-100"/></div></div>
+  </div>
+  </div>
+  </ion-toolbar>
+  </div>
+
+  <div class="search-box">
+  <div class="container position-relative">
+  <form>
+  <input type="search" placeholder="Search here" id="search"/>
+  <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  </div>
+  </div>
+  <div class="head-title">
+  </div>
+  <div class="body">
+  <div class="head-title"><div class="container"><h2>COMPTE NESSICO</h2></div></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4">
+        <ion-card color="medium">
+          <ion-icon src="../../../assets/images/lock-svgrepo-com.svg"></ion-icon>
+          <ion-text>
+            <small><br> reset<br>
+              password</small>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card color="medium">
+          <ion-icon src="../../../assets/images/lock-svgrepo-com.svg"></ion-icon>
+          <ion-text>
+            <small>liberation
+              session</small>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </div>
+  </ion-content>
+  

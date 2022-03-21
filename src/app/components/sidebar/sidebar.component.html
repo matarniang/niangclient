@@ -1,0 +1,44 @@
+<aside class="main-menu-box bg-primary">
+<div class="trangle-bg"></div>
+<div class="header">
+<div class="title">Main Menu</div>
+<a class="close-btn"><i class="fas fa-times"></i></a>
+</div>
+<div class="menu">
+<ul class="nav flex-column flex-nowrap main-menu overflow-hidden">
+                <li class="nav-item">
+                    <a class="nav-link submenu"  (click)="dashboardPage()" [ngClass]="url1=='/dashboard2' ? 'active ' : ''"> <span>Home</span></a>
+                </li>
+      
+                 <li class="nav-item">
+                    <a class="nav-link" (click)="historyPage()" [ngClass]="url1=='/history' ? 'active' : ''"><span>History</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="profilePage()" [ngClass]="url1=='/profile' ? 'active ' : ''"><span>Profile</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" (click)="settingsPage()" [ngClass]="url1=='/settings' ? 'active' : ''"><span>Settings</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" (click)="settingsPage()" [ngClass]="url1=='/settings' ? 'active' : ''"><span>Contacts</span></a>
+                </li>
+              
+              <!-- <li class="nav-item">
+                <a class="nav-link" (click)="ConnexionPage()" [ngClass]="url1=='/connexion' ? 'active' : ''"><span>Connecter</span></a>
+            </li> -->
+              
+                
+            </ul>
+</div>
+
+<div class="menu-footer">
+<div class="profile box">
+<div class="profile-info">
+<div class="name" style="text-align:center">Se deconnecter</div>
+
+</div>
+<div class="signout-btn"><a (click)="logoutPage()"><i class="fas fa-sign-out-alt"></i></a></div>
+</div>
+</div>
+</aside>

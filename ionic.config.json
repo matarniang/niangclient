@@ -1,0 +1,8 @@
+{
+  "name": "dark",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

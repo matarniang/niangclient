@@ -1,0 +1,146 @@
+<ion-content class="mainbackground">
+  <div class="header">
+    <ion-toolbar>
+  <div class="container">
+  <div class="row" >
+  <div class="col-8">
+    <!-- <div class="title"><a (click)="menuPage()"><i class="fa fa-list" aria-hidden="true"></i></a></div> -->
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </div>
+  <div class="col-4 text-right"><a class="pulse-animation notification-btn" (click)="notificationsPage()"><i class="far fa-bell"></i></a> <div class="profile-pic" (click)="profilePage()"><img src="../../../assets/images/user-profile.jpg" class="width-100"/></div></div>
+  </div>
+  </div>
+</ion-toolbar>
+  </div>
+  <div class="search-box">
+  <div class="container position-relative">
+  <form>
+  <input type="search" placeholder="Search here" id="search"/>
+  <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  </div>
+  </div>
+  <div class="head-title">
+  <div class="head-title"><div class="container"><h3>Mes Favoris</h3></div></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4">
+        <ion-card color="medium">
+          <ion-icon src="../../../assets/images/password.svg"></ion-icon>
+          <ion-text>
+            <small><br>reset<br>
+              password<br>
+              oracle</small>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card color="medium">
+          <ion-icon src="../../../assets/images/password.svg"></ion-icon>
+          <ion-text>
+            <small><br>reset<br>
+              password<br>
+              AD</small>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-card color="medium">
+          <ion-icon src="../../../assets/images/password.svg"></ion-icon>
+          <ion-text>
+            <small><br>reset<br>
+              password
+              Nesico</small> 
+          </ion-text>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </div>
+  
+  <div class="body">
+  <div class="head-title"><div class="container"><h3>Mes Services</h3></div></div>
+  <ion-grid>
+    <ion-row>
+      
+      <ion-col size="4">
+        <a (click)="windowsPage()">
+        <ion-card color="medium">
+          <ion-icon src="../../../assets/images/windows-logo-svgrepo-com.svg"></ion-icon>
+          <ion-text>
+            <!-- <h6>Windows</h6> -->
+           <p> <small>windows</small></p>
+          </ion-text>
+        </ion-card>
+      </a>
+      </ion-col>
+  
+      <ion-col size="4">
+        <a (click)="nessicoPage()">
+        <ion-card color="medium">
+          <ion-icon src="../../../assets/images/services.svg"></ion-icon>
+          <ion-text>
+            <!-- <h6>Nessico</h6> -->
+           <p> <small>Nessico</small></p>
+          </ion-text>
+        </ion-card>
+      </a>
+      </ion-col>
+
+      <ion-col size="4">
+        <a (click)="oraclePage()">
+        <ion-card color="medium">
+          <ion-icon src="../../../assets/images/oracle.svg"></ion-icon>
+          <ion-text>
+            <!-- <h6>Oracle</h6> -->
+            <p><small>Oracle</small></p>
+          </ion-text>
+        </ion-card>
+      </a>
+      </ion-col>
+
+      <ion-col size="4">
+        <a (click)="simplissimoPage()">
+        <ion-card color="medium">
+          <ion-icon src="../../../assets/images/services.svg"></ion-icon>
+          <ion-text>
+            <!-- <h6>Simplissimo</h6> -->
+            <p><small>Simplissimo</small></p>
+          </ion-text>
+        </ion-card>
+      </a>
+      </ion-col>
+
+      <ion-col size="4">
+        <a (click)="gaiaPage()">
+        <ion-card color="medium">
+          <ion-icon src="../../../assets/images/services.svg"></ion-icon>
+          <ion-text>
+            <!-- <h6>Gaia</h6> -->
+            <p><small>Gaia</small></p>
+          </ion-text>
+        </ion-card>
+      </a>
+      </ion-col>
+      <ion-col size="4">
+        <a (click)="autresPage()">
+        <ion-card color="danger">
+          <ion-icon src="../../../assets/images/outlook.svg"></ion-icon>
+          <ion-text>
+            <!-- <h6>Outlook</h6> -->
+            <p><small>Outlook</small></p>
+          </ion-text>
+        </ion-card>
+      </a>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+  </div>
+  </ion-content>
+  

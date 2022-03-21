@@ -1,0 +1,49 @@
+  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button expand="block">
+       
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+<ion-content class="mainbackground">
+<!-- <div class="header"> -->
+<!-- <ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button expand="block">
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+  </div> -->
+  <div class="form-box">
+   <div class="logo"><img src="../../../assets/images/MALADO.png" ></div>
+   <div class="title"><h1>Authentification</h1></div>
+    <div class="or"></div>
+   <form ngForm="form" (submit)="Connexion()">
+     <div class="form-group">
+      <div>
+        <input type="text"  class="form-control" id="username" placeholder=" saisir votre loginAD" name="loginad" [(ngModel)]="loginadField" required="" />
+      </div> 
+      </div>
+      <div class="form-group">
+        <div>
+        <!-- <ion-icon name="eye" slot="end"></ion-icon> -->
+          <input type="password"  class="form-control" id="password" placeholder=" saisir votre mot de passe" name="password" [(ngModel)]="passwordField" required="" />
+          <!-- <ion-input type="password"  class="form-control" id="password" placeholder=" saisir votre mot de passe" name="password" [(ngModel)]="passwordField" required=" "" ></ion-input>
+           -->
+        </div>
+      </div>
+      <div class="form-group">
+        <p style="color: black;text-align: center;"><a [routerLink]="['/forgotpassword']">Mot de passe oublie?</a><br><br>
+        Pas de compte ?<a [routerLink]="['/login-ad']">S’INSCRIRE</a></p>
+      </div>
+       <!-- <div class="form-group">
+        <p>Pas de compte ?<a [routerLink]="['/login-ad']"   style="color: black;text-align: center;">S’INSCRIRE</a></p>
+       </div> -->
+        <button  class="theme btn btn-primary form-control" style="padding: 0px;">Se Connecter</button>    
+   </form>
+   </div>
+  </ion-content>
+
+
+

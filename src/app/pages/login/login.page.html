@@ -1,0 +1,18 @@
+<ion-content class="mainbackground">
+<div class="form-box">
+
+ 
+ <div class="logo"><img src="../../../assets/images/logoicon.svg" class="w-100"></div>
+ <div class="title">Sign In</div>
+ 
+
+  <div class="or"></div>
+ <form ngForm="form" (submit)="connexion()">
+    <div class="form-group">
+      <input type="password" class="form-control" id="password" placeholder="Password" name="Password" [(ngModel)]="passwordField" required="">
+    </div>
+      <button type="submit" class="theme btn btn-primary">Se connecter</button>
+   
+ </form>
+ </div>
+</ion-content>
