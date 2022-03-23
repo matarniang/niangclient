@@ -20,9 +20,10 @@ export class Dashboard2Page implements OnInit {
   this.router.navigate(['notifications'])
   }
 
-  // menuPage(){
-  //   this.router.navigate(['menu'])
-  // }
+  profilePage()
+  {
+	  this.router.navigate(['profile'])
+  }
 
   windowsPage(){
     this.router.navigate(['windows'])
@@ -44,10 +45,7 @@ export class Dashboard2Page implements OnInit {
   Comptewindows(){
     this.router.navigate(['comptewindows'])
   }
-  profilePage()
-  {
-	  this.router.navigate(['profile'])
-  }
+
 
   simplissimoPage()
   {

@@ -1,6 +1,11 @@
 ion-toolbar{
     --background: #f79e1b;
+    ion-icon{
+        color: #231F20;
+    }
 }
+
+
 
 .form-box
 {
@@ -40,7 +45,7 @@ input
 }
 
 button {
-    margin-top: 25%;
+    margin-top: 40%;
 }
 
 .title

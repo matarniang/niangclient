@@ -67,10 +67,11 @@ const routes: Routes = [
     path: 'login-ad',
     loadChildren: () => import('./login-ad/login-ad.module').then( m => m.LoginAdPageModule)
   },
+  // {
+  //   path: 'comptewindows',
+  //   loadChildren: () => import('./pages/comptewindows/comptewindows.module').then( m => m.ComptewindowsPageModule)
+  // },
   {
-    path: 'comptewindows',
-    loadChildren: () => import('./pages/comptewindows/comptewindows.module').then( m => m.ComptewindowsPageModule)
-  },  {
     path: 'dashboard2',
     loadChildren: () => import('./pages/dashboard2/dashboard2.module').then( m => m.Dashboard2PageModule)
   },

@@ -1,12 +1,11 @@
 <ion-toolbar>
   <ion-buttons slot="start">
-    <ion-button expand="block">
+    <ion-button expand="block" >
       <a (click)="AuthentificationPage()"><ion-icon name="arrow-back"></ion-icon></a> 
     </ion-button>
   </ion-buttons>
-  <!-- <ion-title>dashboard2</ion-title> -->
+  
 </ion-toolbar>
-
 
 <ion-content class="mainbackground">
   <!-- class="mainbackground" -->
@@ -18,16 +17,22 @@
     </div> -->
   <div class="form-box">
    <div class="logo"><img src="../../../assets/images/MALADO.png" class="w-100"></div>
-   <div class="title">Inscription</div>
+   <div class="title"><h1>Inscription</h1></div>
     <div class="or"></div>
    <form ngForm="form" (submit)="loginad()">
      <div class="form-group">
       <div >
-        <input type="text"  class="form-control" id="numero" placeholder=" numero de telephone" name="numero" required="" />
+        <input type="text"  class="form-control" id="numero" placeholder=" numero de telephone" name="numero" required />
       </div> 
       <div >
-        <input type="text"  class="form-control" id="username" placeholder=" saisir votre loginAD" name="loginad" [(ngModel)]="loginField" required="" />
-      </div> 
+        <input type="text"  class="form-control" id="username" placeholder=" saisir votre loginAD" name="loginad" [(ngModel)]="loginField" required />
+      </div>
+      
+      <!-- <div>
+        <p style="color: black;text-align: center;"><br><br>
+        <small>les trois premieres caractères du loginAD doit etre en majuscule</small></p>
+      </div> -->
+
       </div>
         <button  class="theme btn btn-primary form-control" style="padding: 0px;">Continuer</button>    
    </form>

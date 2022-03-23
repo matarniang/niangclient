@@ -3,40 +3,29 @@
     <ion-content class="mainbackground">
       <div class="menu-header-bg"></div>
       <div class="header-content">
-        <!-- <img src="../../../assets/images/logoicon.svg" > -->
         <!-- <icon-label> -->
           <h2>MENU</h2>
         <!-- </icon-label> -->
       </div>
-      <!-- <div class="action-button">
-        
-      </div> -->
-      <!-- <ion-list class="menu-items" lines ="none"  >
+  
+
+      <div class="menu-items">
         <ion-item>
-          <ion-icon name="pie-chart-outline"></ion-icon>
+          <ion-icon name="settings"></ion-icon>Parametre 
         </ion-item>
-
         <ion-item>
-          <ion-icon name="browsers-outline"></ion-icon>
+          <ion-icon name="person"></ion-icon>Profile
         </ion-item>
-
-        <ion-item class="active">
-          <ion-icon name="flash"></ion-icon>
-        </ion-item>
-
         <ion-item>
-          <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+          <ion-icon name="document"></ion-icon>Demande
         </ion-item>
-
         <ion-item>
-          <ion-icon name="heart-outline"></ion-icon>
+          <ion-icon name="people"></ion-icon>Guide d'uttilisateur
         </ion-item>
-
         <ion-item>
-          <ion-icon name="exit-outline"></ion-icon>
-        </ion-item> -->
-
-      <!-- </ion-list> -->
+          <a (click)="AuthentificationPage()"><ion-icon name="exit-outline"></ion-icon>Se deconnecter</a> 
+        </ion-item>
+      </div>
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>

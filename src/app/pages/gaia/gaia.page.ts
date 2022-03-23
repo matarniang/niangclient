@@ -18,4 +18,14 @@ export class GaiaPage implements OnInit {
 	   this.router.navigate(['dashboard2'])
   }
 
+  notificationsPage()
+  {
+  this.router.navigate(['notifications'])
+  }
+
+  profilePage()
+  {
+	  this.router.navigate(['profile'])
+  }
+
 }
