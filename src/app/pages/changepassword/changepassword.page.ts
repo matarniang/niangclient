@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { MaladoRequest } from 'src/app/models/maladoRequest.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { BehaviorSubject } from 'rxjs';
+const circleR = 80;
+ const circleDasharray = 2 * Math.PI * circleR;
+
 
 @Component({
   selector: 'app-changepassword',
@@ -19,12 +23,39 @@ export class ChangepasswordPage implements OnInit {
   token= localStorage.getItem('token')
   loginField:string
   hasPassword = true;
+
+  showPassword= false;
+  passwordToggleIcon= 'eye'
+  userIcon = 'person'
+
+// timer variable
+time: BehaviorSubject<string> = new BehaviorSubject('00:00');
+percent: BehaviorSubject<number> = new BehaviorSubject(100);
+timer: number; // in seconds
+interval;
+startduration = 1;
+circleR = circleR ;
+circleDasharray = circleDasharray ;
+state: 'start' | 'stop' = 'stop';
+// 
  
   constructor(private router: Router,
      private alerteCtrl: AlertController,
      private authservice: AuthService,
      public alertController : AlertController
       ) { }
+  
+      togglePassword():void {
+        this.showPassword =! this.showPassword;
+    
+        if (this.passwordToggleIcon=='eye'){
+          this.passwordToggleIcon ='eye-off';
+        }else{
+          this.passwordToggleIcon='eye';
+        }
+      }
+     
+
   dashboardPage()
   {
    this.router.navigate(['dashboard'])
@@ -46,11 +77,12 @@ export class ChangepasswordPage implements OnInit {
     this.isEnabled(enabled => {
        if (this.isActivated){
          //le compte est activé
+         //this.stopTimer();
         this.checkConnection(hasPassword => {
           if (hasPassword) {
             // il a déja un mot de passe
-            this.router.navigate(['login'])
-            //this.presentAlert();
+            this.router.navigate(['connexion'])
+
           } else {
             // il n'a pas encore de mot de passe.
             this.router.navigate(['changepassword'])
@@ -60,30 +92,21 @@ export class ChangepasswordPage implements OnInit {
          // il n'a pas encore validé son compte et/ou son lien a expiré
          // vérifier si le token is toujours actif.
           //this.tokenValidation()
+          this.startTimer(1);
           setInterval(() => {
             this.isEnabled(enabled =>{
               if (this.isActivated){
+                //this.stopTimer();
                 //le compte vient d'être activé
                 this.hasPassword = false;
               }
             })
-          },5000); 
+          },1000); 
        }
     })
       
   }
 
-  
-
-   /* tokenValidation() {
-   // alert(this.token)
-    this.authservice.tokenValidation(new MaladoRequest('', '', '', '', this.token)).subscribe(
-      () =>{
-        //rediriger vers la page d'accueil
-      alert("un mail vous a ete envoyé, Veuillez confirmer pour continuer")
-      }
-    )
-  } */
 
    checkConnection(cb) {
     this.authservice.passwordVerification(new MaladoRequest('', '', '', '', this.loginAd)).subscribe( 
@@ -118,16 +141,52 @@ export class ChangepasswordPage implements OnInit {
       )
    }
 
-   async presentAlert() {
-    const alert = await this.alertController.create({
-      cssClass: 'alertDanger',
-      // header: 'Alert',
-      // subHeader: 'Subtitle',
-      message: "Compte deja exister",
-      buttons: ['OK']
-    });
 
-    await alert.present();
+startTimer(duration: number){
+  this.state = 'start'; 
+  clearInterval(this.interval);
+  this.timer = duration*60;
+  this.updatetimeValue();
+  this.interval=setInterval( () =>{
+    this.updatetimeValue();
+  },1000);
+}
+
+stopTimer(){
+  clearInterval(this.interval);
+  this.time.next('00:00');
+  this.state = 'stop';
+}
+
+percentageOffset(percent){
+  const percentFloat = percent / 100;
+  return circleDasharray * (1-percentFloat);
 
 }
+
+
+updatetimeValue(){
+  let minutes: any = this.timer / 60;
+  let secondes:any = this.timer % 60;
+  minutes=String('0'+ Math.floor(minutes)).slice(-2);
+  secondes=String('0'+ Math.floor(secondes)).slice(-2);
+
+  const text = minutes + ':' + secondes;
+  this.time.next(text);
+
+  const totalTime = this.startduration * 60;
+  const percentage = ((totalTime-this.timer)/totalTime) * 100;
+  this.percent.next(percentage)
+
+  --this.timer;
+  if(this.timer<0){
+    if(!this.isActivated){
+      this.stopTimer();
+      this.router.navigate(['login-ad'])
+    }
+    //this.startTimer(this.startduration);
+  }
+
+}
+
 }

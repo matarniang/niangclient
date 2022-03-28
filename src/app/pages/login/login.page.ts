@@ -65,7 +65,7 @@ export class LoginPage implements OnInit {
       (data) =>{
         localStorage.setItem('loginAd', this.loginField)
         if (this.correctPassword) {
-          this.router.navigate(['dashboard'])
+          this.router.navigate(['dashboard2'])
         }else
         this.router.navigate(['login'])
       }

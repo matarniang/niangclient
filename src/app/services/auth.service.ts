@@ -22,7 +22,7 @@ export class AuthService {
     }
 
     maladoconnexion(data:MaladoRequest){
-        return this.http.post(environnement.localurl + this.url + 'connexion', data, {headers:config.jsonHeader, responseType: 'text'});
+        return this.http.post(environnement.localurl + this.url + 'password', data, {headers:config.jsonHeader, responseType: 'text'});
      }
 
     isEnabled(data:MaladoRequest) : any{

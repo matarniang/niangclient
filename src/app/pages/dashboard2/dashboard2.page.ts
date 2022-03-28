@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-dashboard2',
   templateUrl: './dashboard2.page.html',
@@ -8,22 +9,19 @@ import { Router } from '@angular/router';
 export class Dashboard2Page implements OnInit {
 
   public menustatus: any;
-  constructor(private router: Router) { }
+  constructor(private router: Router,private menu: MenuController) { }
 
   menuopen()
   {
    alert("function changecolor");
    this.menustatus = 'open';
   }
-  notificationsPage()
-  {
-  this.router.navigate(['notifications'])
+  openCustom() {
+    this.menu.enable(true, 'main-menu');
+    this.menu.open('main-menu');
   }
 
-  // menuPage(){
-  //   this.router.navigate(['menu'])
-  // }
-
+  
   windowsPage(){
     this.router.navigate(['windows'])
   }
@@ -38,9 +36,9 @@ export class Dashboard2Page implements OnInit {
   gaiaPage(){
     this.router.navigate(['gaia'])
   }
-  autresPage(){
-    this.router.navigate(['autres'])
-  }
+  // autresPage(){
+  //   this.router.navigate(['autres'])
+  // }
   Comptewindows(){
     this.router.navigate(['comptewindows'])
   }
@@ -48,14 +46,24 @@ export class Dashboard2Page implements OnInit {
   {
 	  this.router.navigate(['profile'])
   }
+  notificationsPage()
+  {
+  this.router.navigate(['notifications'])
+  }
 
   simplissimoPage()
   {
 	  this.router.navigate(['simplissimo'])
   }
 
+  AuthentificationPage(){
+    this.router.navigate(['connexion'])
+    //this.menu.close('main-menu')
+  }
+
 
   ngOnInit() {
   }
+
 
 }

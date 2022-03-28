@@ -4,10 +4,10 @@
   <div class="container">
   <div class="row" >
   <div class="col-8">
-    <!-- <div class="title"><a (click)="menuPage()"><i class="fa fa-list" aria-hidden="true"></i></a></div> -->
-    <ion-buttons slot="start">
+    <div class="title" style="float: left; margin-top:5px"><a (click)="openCustom()"><ion-menu-button></ion-menu-button></a></div>
+    <!-- <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
-    </ion-buttons>
+    </ion-buttons> -->
   </div>
   <div class="col-4 text-right"><a class="pulse-animation notification-btn" (click)="notificationsPage()"><i class="far fa-bell"></i></a> <div class="profile-pic" (click)="profilePage()"><img src="../../../assets/images/user-profile.jpg" class="width-100"/></div></div>
   </div>
@@ -52,8 +52,8 @@
           <ion-icon src="../../../assets/images/password.svg"></ion-icon>
           <ion-text>
             <small><br>reset<br>
-              password
-              Nesico</small> 
+              password<br>
+              Nessico</small> 
           </ion-text>
         </ion-card>
       </ion-col>
@@ -107,7 +107,6 @@
         <ion-card color="medium">
           <ion-icon src="../../../assets/images/services.svg"></ion-icon>
           <ion-text>
-            <!-- <h6>Simplissimo</h6> -->
             <p><small>Simplissimo</small></p>
           </ion-text>
         </ion-card>
@@ -119,7 +118,6 @@
         <ion-card color="medium">
           <ion-icon src="../../../assets/images/services.svg"></ion-icon>
           <ion-text>
-            <!-- <h6>Gaia</h6> -->
             <p><small>Gaia</small></p>
           </ion-text>
         </ion-card>
@@ -130,17 +128,44 @@
         <ion-card color="danger">
           <ion-icon src="../../../assets/images/outlook.svg"></ion-icon>
           <ion-text>
-            <!-- <h6>Outlook</h6> -->
             <p><small>Outlook</small></p>
           </ion-text>
         </ion-card>
       </a>
       </ion-col>
-
     </ion-row>
   </ion-grid>
-
-
+  </div>
+  <div>
+    <ion-menu menuId="main-menu" side="start" class="my-custom-menu">
+      <ion-content class="mainbackground">
+        <div class="menu-header-bg"></div>
+        <div class="header-content">
+            <h2>MENU</h2>
+        </div>
+        <div class="menu-items">
+          <ion-item>
+            <ion-icon name="settings"></ion-icon>Parametre 
+          </ion-item>
+          <ion-item>
+            <ion-icon name="person"></ion-icon>Profile
+          </ion-item>
+          <ion-item>
+            <ion-icon name="document"></ion-icon>Demande
+          </ion-item>
+          <ion-item>
+            <ion-icon name="people"></ion-icon>Guide d'uttilisateur
+          </ion-item>
+          <ion-item>
+            <a (click)="AuthentificationPage()"><ion-icon name="exit-outline"></ion-icon>Se deconnecter</a> 
+          </ion-item>
+        </div>
+      </ion-content>
+      <ion-router-outlet main></ion-router-outlet>
+    </ion-menu>
+    
   </div>
   </ion-content>
+  
+
   

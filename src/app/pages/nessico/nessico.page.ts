@@ -18,4 +18,13 @@ export class NessicoPage implements OnInit {
 	   this.router.navigate(['dashboard2'])
   }
 
+  profilePage()
+  {
+	  this.router.navigate(['profile'])
+  }
+  notificationsPage()
+  {
+  this.router.navigate(['notifications'])
+  }
+
 }

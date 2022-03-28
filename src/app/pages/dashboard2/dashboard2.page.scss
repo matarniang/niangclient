@@ -1,3 +1,94 @@
+// * {
+//     font-family: lato;
+// }
+
+
+.menu-header-bg{
+       height: 140px;
+       width: 350px;
+       background-color: #f79e1b;
+       background:linear-gradient(90deg,#f79e1b 0%,#f89c11 100%);
+       box-shadow: 0px 1px 10px rgba(98,140,255,0.5);
+       transform: rotate(-15deg);
+       border-radius: 10px 10px 10px 50px;
+       margin-left: -18px;
+       margin-top: -50px;
+       margin-bottom: 60px;
+}
+
+.header-content{
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+ion-icon{
+    margin-right: 1px;
+}
+
+.menu-header-bg{
+    height: 140px;
+    width: 350px;
+    background-color: #f79e1b;
+    background:linear-gradient(90deg,#f79e1b 0%,#f89c11 100%);
+    transform: rotate(-15deg);
+    border-radius: 10px 10px 10px 50px;
+    margin-left: -18px;
+    margin-top: -50px;
+    margin-bottom: 60px;
+}
+
+.header-content{
+ position: absolute;
+ top: 30px;
+ left: 15px;
+ display: flex;
+ align-items: center;
+
+}
+
+
+ion-icon{
+ margin-right: 1px;
+}
+
+
+.menu-items{
+ margin: 0px;
+ ion-icon{
+     margin-right: 20px;
+     color:#86979f;
+ }
+
+ ion-item {
+     padding-left: 20px;
+     margin-bottom: 10ox;
+     --background:rgb(247,247,247);
+     color: black;
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .transactions-box {
     background: #F5F5F5;

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { MaladoRequest } from 'src/app/models/maladoRequest.model';
 import { AuthService } from 'src/app/services/auth.service';
+//import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
+
 
 @Component({
   selector: 'app-login-ad',
@@ -11,7 +13,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginAdPage implements OnInit {
   loginField:string
-
+  isAlert=false;
+  alertMsg="merci de derifier"
   constructor(private router : Router,
     private authservice : AuthService,
     private alerteCtrl : AlertController,
@@ -40,11 +43,20 @@ export class LoginAdPage implements OnInit {
       },
       //  en cas error 
       (error) =>{
-        //Afficher un message d'erreur
-        console.log("Ereur Login")
-        console.log(error)
-        console.log(error.message)
-      },
+        if(error.status==404){
+          
+          this.alertMsg="loginad n'existe pas dans la base"
+          this.isAlert = true;
+        }
+        else if (error.status==500){
+          this.alertMsg="loginad obligatoir"
+          this.isAlert = true;
+        }
+        else{
+          this.alertMsg="verifier votre connexion"
+          this.isAlert = true;
+        }
+      }
     )
   }  
   }

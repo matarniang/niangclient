@@ -18,7 +18,10 @@
     </div> -->
   <div class="form-box">
    <div class="logo"><img src="../../../assets/images/MALADO.png" class="w-100"></div>
-   <div class="title">Inscription</div>
+   <div *ngIf="isAlert" class="alert alert-danger" role="alert">
+    {{alertMsg}}
+  </div>
+   <div class="title"><h1>Inscription</h1></div>
     <div class="or"></div>
    <form ngForm="form" (submit)="loginad()">
      <div class="form-group">
