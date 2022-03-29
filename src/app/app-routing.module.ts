@@ -2,14 +2,16 @@
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home',
+   
+  },
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
   },
   {
     path: 'walkthrough',
@@ -70,7 +72,8 @@ const routes: Routes = [
   {
     path: 'comptewindows',
     loadChildren: () => import('./pages/comptewindows/comptewindows.module').then( m => m.ComptewindowsPageModule)
-  },  {
+  },
+  {
     path: 'dashboard2',
     loadChildren: () => import('./pages/dashboard2/dashboard2.module').then( m => m.Dashboard2PageModule)
   },

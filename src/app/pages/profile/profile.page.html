@@ -13,25 +13,23 @@
         </div>
         </ion-toolbar>
      </div>
-
-
 <div class="container">
 <div class="body">
 <div class="profile-box">
 <div class="top">
 <div class="pic"><img src="../../../assets/images/user-profile.jpg" class="w-100"/></div>
-<div class="name">Niang matar</div>
+<div class="name">{{ Userdata.nom }} {{ Userdata.prenom }}</div>
 <div class="location">Dakar, SENEGAl</div>
 </div>
 <div class="bottom">
 <div class="row">
 <div class="col-6">
-<div class="label">Income</div>
-<div class="value text-success">$2,345</div>
+<div class="label">Departement</div>
+<div class="value text-success">SMC</div>
 </div>
 <div class="col-6">
-<div class="label">Expenses</div>
-<div class="value text-danger">$1,234</div>
+<div class="label">Service</div>
+<div class="value text-danger">SMMO</div>
 </div>
 </div>
 </div>
@@ -42,9 +40,9 @@
 <div class="label">Address</div>
 <div class="value">rue 06x27 Medina, Dakar, SENEGAL</div>
 <div class="label">Email</div>
-<div class="value">niang@gmail.com</div>
-<div class="label">Telephone</div>
-<div class="value">+221782937218</div>
+<div class="value">{{Userdata.email}}</div>
+<div class="label">Loginad</div>
+<div class="value">{{Userdata.login}}</div>
 </div>
 </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-dashboard2',
   templateUrl: './dashboard2.page.html',
@@ -9,7 +10,7 @@ import { MenuController } from '@ionic/angular';
 export class Dashboard2Page implements OnInit {
 
   public menustatus: any;
-  constructor(private router: Router,private menu: MenuController) { }
+  constructor(private router: Router,private menu: MenuController,private http: HttpClient) { }
 
   menuopen()
   {

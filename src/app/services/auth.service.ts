@@ -5,10 +5,7 @@ import { environnement } from "../shared/environnement";
 import { config } from "../config/config";
 import { HttpClient } from "@angular/common/http";
 
-
-
-//@Injectable({providedIn:"root" })
- @Injectable({
+@Injectable({
     providedIn: 'root'
  })
 export class AuthService {
@@ -28,18 +25,19 @@ export class AuthService {
     isEnabled(data:MaladoRequest) : any{
         return this.http.post(environnement.localurl + this.url +'enable', data, {headers:config.jsonHeader, responseType: 'text'});
     }
+    dataUser(data:MaladoRequest) : any{
+        return this.http.post(environnement.localurl + this.url +'maladoUser', data, {headers:config.jsonHeader, responseType: 'text'});
+    }
     passwordVerification(data:MaladoRequest) : any{
         return this.http.post(environnement.localurl + this.url +'passwordVerification', data, {headers:config.jsonHeader, responseType: 'text'});
     }
     confirmpassword(data:MaladoRequest){
         return this.http.post(environnement.localurl + this.url +'confirmpassword', data, {headers:config.jsonHeader, responseType: 'text'});
     }
-
     connexion(data:MaladoRequest){
         return this.http.post(environnement.localurl + this.url +'password', data, {headers:config.jsonHeader, responseType: 'text'});
 
     }
-
     tokenValidation(data:MaladoRequest){
         return this.http.post(environnement.localurl + this.url + 'token', data, {headers:config.jsonHeader, responseType: 'text'});
 
