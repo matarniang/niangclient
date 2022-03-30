@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { MaladoRequest } from 'src/app/models/maladoRequest.model';
 
 @Component({
   selector: 'app-notifications',
@@ -8,7 +10,32 @@ import { Router } from '@angular/router';
 })
 export class NotificationsPage implements OnInit {
 
-  constructor(private router: Router) { }
+  loginAd= localStorage.getItem('loginAd');
+
+  Userdata = {
+    nom: '',
+    prenom: '',
+   // email: '',
+   // login: ''
+  };
+
+  constructor(private router: Router,private authservice:AuthService) { }
+
+  getataUser() {
+    this.authservice.dataUser(new MaladoRequest('', '', '', '', this.loginAd)).subscribe( 
+      (data)=>{
+       //console.log(data)
+       data = JSON.parse(data);
+       console.log(data)
+       this.Userdata.nom = data['firstName'];
+       this.Userdata.prenom = data['lastName'];
+       //this.Userdata.email = data['email'];
+       //this.Userdata.login = data['loginad'];
+
+      }
+    )
+  }
+
   dashboardPage()
   {
    this.router.navigate(['dashboard2'])
@@ -23,6 +50,7 @@ export class NotificationsPage implements OnInit {
   }
   
   ngOnInit() {
+    this.getataUser()
   }
 
 }
