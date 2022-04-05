@@ -1,16 +1,12 @@
-#progress-circule{
-    margin-top: 50px;
-    //transform: rotate(-90deg);
-}
-.timer-text{
-   // transform: rotate(-90deg);
-    // transform-origin: center;
-    font-size: 36px;
-    text-anchor: middle;
-    font-weight: 600;
-    fill: #333;
-}
-
-
-
-// https://www.youtube.com/watch?v=aOHJRqvcjTI
+.flex {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .img-box {
+    height: 200px;
+    overflow: hidden;
+  }
+  img {
+    height: 200px;
+  }

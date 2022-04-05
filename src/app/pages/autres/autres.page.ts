@@ -1,74 +1,57 @@
  import { Component, OnInit } from '@angular/core';
- import { BehaviorSubject } from 'rxjs';
- import { HttpClient } from '@angular/common/http';
- const circleR = 80;
- const circleDasharray = 2 * Math.PI * circleR;
-
+ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+ import { LoadingController, AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-autres',
   templateUrl: './autres.page.html',
   styleUrls: ['./autres.page.scss'],
 })
 export class AutresPage implements OnInit {
-  // time: BehaviorSubject<string> = new BehaviorSubject('00:00');
-  // percent: BehaviorSubject<number> = new BehaviorSubject(100);
-  // timer: number; // in seconds
-  // interval;
-  // startduration = 1;
-
-  // circleR = circleR ;
-  // circleDasharray = circleDasharray ;
-
-  // state: 'start' | 'stop' = 'stop';
-  constructor() { }
+  image = 'https://www.kasterencultuur.nl/editor/placeholder.jpg';
+  constructor(private camera: Camera,
+    public loadingController: LoadingController,
+    public alertController: AlertController,) { }
 
   ngOnInit() {
   }
 
-  
-  // startTimer(duration: number){
-  //   this.state = 'start'; 
-  //   clearInterval(this.interval);
-  //   this.timer = duration*60;
-  //   this.updatetimeValue();
-  //   this.interval=setInterval( () =>{
-  //     this.updatetimeValue();
-  //   },1000);
-  // }
+  async addPhoto(source: string) {
+    if (source === 'camera') {
+      console.log('camera');
+      const loading = await this.loadingController.create();
+	    await loading.present();
+      // const cameraPhoto = await this.openCamera();
+      // this.image = 'data:image/jpg;base64,' + cameraPhoto;
+    } else {
+      console.log('library');
+      const libraryImage = await this.openLibrary();
+      this.image = 'data:image/jpg;base64,' + libraryImage;
+    }
+  }
 
-  // stopTimer(){
-  //   clearInterval(this.interval);
-  //   this.time.next('00:00');
-  //   this.state = 'stop';
-  // }
-
-  // percentageOffset(percent){
-  //   const percentFloat = percent / 100;
-  //   return circleDasharray * (1-percentFloat);
-
-  // }
-
-
-  // updatetimeValue(){
-  //   let minutes: any = this.timer / 60;
-  //   let secondes:any = this.timer % 60;
-  //   minutes=String('0'+ Math.floor(minutes)).slice(-2);
-  //   secondes=String('0'+ Math.floor(secondes)).slice(-2);
-
-  //   const text = minutes + ':' + secondes;
-  //   this.time.next(text);
-
-  //   const totalTime = this.startduration * 60;
-  //   const percentage = ((totalTime-this.timer)/totalTime) * 100;
-  //   this.percent.next(percentage)
-
-  //   --this.timer;
-  //   if(this.timer<=0){
-  //     this.startTimer(this.startduration);
-  //   }
-
-  // }
-
-
+  async openCamera() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      targetWidth: 1000,
+      targetHeight: 1000,
+      sourceType: this.camera.PictureSourceType.CAMERA
+    };
+    return await this.camera.getPicture(options);
+  }
+async openLibrary() {
+  const options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    targetWidth: 1000,
+    targetHeight: 1000,
+    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+  };
+  return await this.camera.getPicture(options);
+}
 
 }

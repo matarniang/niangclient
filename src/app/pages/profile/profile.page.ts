@@ -3,13 +3,14 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { MaladoRequest } from 'src/app/models/maladoRequest.model';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-
+  image :string;
   loginAd= localStorage.getItem('loginAd');
 
   Userdata = {
@@ -19,7 +20,24 @@ export class ProfilePage implements OnInit {
     login: ''
   };
 
-  constructor(private router: Router,private http: HttpClient,private authservice:AuthService) { }
+  constructor(private router: Router,private http: HttpClient,private authservice:AuthService,private camera: Camera) { }
+ 
+  ngOnInit() {
+    
+    setInterval( () =>{
+      this.getImage()
+      this.getataUser()
+    },0);
+  }
+ getImage(){
+  if (this.image!="../../../assets/images/profil.png"){
+    this.image = localStorage.getItem('image');
+  }else{
+    this.image="../../../assets/images/profil.png"
+    localStorage.setItem('image',this.image);
+  }
+ }
+ 
   dashboardPage()
   {
 	   this.router.navigate(['dashboard2'])
@@ -27,9 +45,6 @@ export class ProfilePage implements OnInit {
    notificationsPage()
   {
   this.router.navigate(['notifications'])
-  }
-  ngOnInit() {
-    this.getataUser()
   }
 
   getataUser() {
@@ -47,6 +62,22 @@ export class ProfilePage implements OnInit {
     )
   }
 
+  async addPhoto() {
+    const libraryImage = await this.openLibrary();
+    this.image = 'data:image/jpg;base64,' + libraryImage;
+    localStorage.setItem('image',this.image);
+}
 
-
+async openLibrary() {
+  const options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    targetWidth: 1000,
+    targetHeight: 1000,
+    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+  };
+  return await this.camera.getPicture(options);
+}
 }

@@ -27,7 +27,7 @@ export class SettingsPage implements OnInit {
   }
   dashboardPage()
   {
-	  this.router.navigate(['dashboard'])
+	  this.router.navigate(['dashboard2'])
   }
   profilePage()
   {

@@ -20,7 +20,11 @@ export class NotificationsPage implements OnInit {
   };
 
   constructor(private router: Router,private authservice:AuthService) { }
-
+  ngOnInit() {
+    setInterval( () =>{
+      this.getataUser()
+    },0);
+  }
   getataUser() {
     this.authservice.dataUser(new MaladoRequest('', '', '', '', this.loginAd)).subscribe( 
       (data)=>{
@@ -49,8 +53,4 @@ export class NotificationsPage implements OnInit {
 	  this.router.navigate(['profile'])
   }
   
-  ngOnInit() {
-    this.getataUser()
-  }
-
 }

@@ -9,7 +9,7 @@
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons> -->
   </div>
-  <div class="col-4 text-right"><a class="pulse-animation notification-btn" (click)="notificationsPage()"><i class="far fa-bell"></i></a> <div class="profile-pic" (click)="profilePage()"><img src="../../../assets/images/user-profile.jpg" class="width-100"/></div></div>
+  <div class="col-4 text-right"><a class="pulse-animation notification-btn" (click)="notificationsPage()"><i class="far fa-bell"></i></a> <div class="profile-pic" (click)="profilePage()"><img [src]="image" class="width-100"/></div></div>
   </div>
   </div>
 </ion-toolbar>
@@ -27,6 +27,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="4">
+        <a (click)="demande('reset','oracle','STG_niang0001','orange@2022')">
         <ion-card color="medium">
           <ion-icon src="../../../assets/images/password.svg"></ion-icon>
           <ion-text>
@@ -35,6 +36,7 @@
               oracle</small>
           </ion-text>
         </ion-card>
+      </a>
       </ion-col>
       <ion-col size="4">
         <ion-card color="medium">
@@ -46,13 +48,12 @@
           </ion-text>
         </ion-card>
       </ion-col>
-
       <ion-col size="4">
         <ion-card color="medium">
           <ion-icon src="../../../assets/images/password.svg"></ion-icon>
           <ion-text>
-            <small><br>reset<br>
-              password<br>
+            <small><br>Deverrouillage<br>
+              compte<br>
               Nessico</small> 
           </ion-text>
         </ion-card>
@@ -141,21 +142,21 @@
       <ion-content class="mainbackground">
         <div class="menu-header-bg"></div>
         <div class="header-content">
-            <h2>MENU</h2>
+            <h2 style="color: black;">MENU</h2>
         </div>
         <div class="menu-items">
           <ion-item>
-            <ion-icon name="settings"></ion-icon>Parametre 
+           <a (click)="setting()"> <ion-icon name="settings"></ion-icon>Parametre</a>
           </ion-item>
-          <ion-item>
+          <!-- <ion-item>
             <ion-icon name="person"></ion-icon>Profile
-          </ion-item>
+          </ion-item> -->
           <ion-item>
             <ion-icon name="document"></ion-icon>Demande
           </ion-item>
-          <ion-item>
+          <!-- <ion-item>
             <ion-icon name="people"></ion-icon>Guide d'uttilisateur
-          </ion-item>
+          </ion-item> -->
           <ion-item>
             <a (click)="AuthentificationPage()"><ion-icon name="exit-outline"></ion-icon>Se deconnecter</a> 
           </ion-item>

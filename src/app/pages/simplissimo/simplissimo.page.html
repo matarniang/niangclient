@@ -5,7 +5,7 @@
   <div class="row">
   <div class="col-8" style="margin-top: 5px;"><div class="title"><a (click)="dashboardPage()"><ion-icon name="arrow-back"></ion-icon></a></div>
   </div>
-  <div class="col-4 text-right"><a class="pulse-animation notification-btn" (click)="notificationsPage()"><i class="far fa-bell"></i></a> <div class="profile-pic" (click)="profilePage()"><img src="../../../assets/images/user-profile.jpg" class="width-100"/></div></div>
+  <div class="col-4 text-right"><a class="pulse-animation notification-btn" (click)="notificationsPage()"><i class="far fa-bell"></i></a> <div class="profile-pic" (click)="profilePage()"><img [src]="image" class="width-100"/></div></div>
   </div>
   </div>
   </ion-toolbar>

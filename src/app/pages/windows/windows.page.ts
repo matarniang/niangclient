@@ -7,11 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./windows.page.scss'],
 })
 export class WindowsPage implements OnInit {
+  image='';
   constructor(private router: Router) { }
 
   ngOnInit() {
+    setInterval( () =>{
+      this.getImage();
+    },0);
   }
-  
+  getImage(){
+    this.image=localStorage.getItem('image');
+  }
   dashboardPage()
   {
 	   this.router.navigate(['dashboard2'])

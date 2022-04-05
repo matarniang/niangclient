@@ -33,7 +33,7 @@ time: BehaviorSubject<string> = new BehaviorSubject('00:00');
 percent: BehaviorSubject<number> = new BehaviorSubject(100);
 timer: number; // in seconds
 interval;
-startduration = 1;
+startduration = 5;
 circleR = circleR ;
 circleDasharray = circleDasharray ;
 state: 'start' | 'stop' = 'stop';
@@ -145,11 +145,11 @@ state: 'start' | 'stop' = 'stop';
 startTimer(duration: number){
   this.state = 'start'; 
   clearInterval(this.interval);
-  this.timer = duration*60;
+  this.timer = duration*300;
   this.updatetimeValue();
   this.interval=setInterval( () =>{
     this.updatetimeValue();
-  },1000);
+  },5000);
 }
 
 stopTimer(){

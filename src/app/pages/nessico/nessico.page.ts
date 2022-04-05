@@ -7,11 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./nessico.page.scss'],
 })
 export class NessicoPage implements OnInit {
-
+  image='';
   constructor(private router: Router) { }
 
   ngOnInit() {
+    setInterval( () =>{
+      this.getImage();
+    },0);
   }
+  getImage(){
+    this.image=localStorage.getItem('image');
+  }
+
   
   dashboardPage()
   {
