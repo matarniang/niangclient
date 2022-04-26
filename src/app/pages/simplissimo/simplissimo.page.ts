@@ -6,17 +6,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./simplissimo.page.scss'],
 })
 export class SimplissimoPage implements OnInit {
-  image='';
+  
   constructor(private router: Router) { }
 
   ngOnInit() {
-    setInterval( () =>{
-      this.getImage();
-    },0);
+    
   }
-  getImage(){
-    this.image=localStorage.getItem('image');
-  }
+  // getImage(){
+  //   this.image=localStorage.getItem('image');
+  // }
   
   dashboardPage()
   {

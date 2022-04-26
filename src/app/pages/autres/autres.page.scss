@@ -1,12 +1,21 @@
-.flex {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-  }
-  .img-box {
-    height: 200px;
-    overflow: hidden;
-  }
-  img {
-    height: 200px;
-  }
+// .flex {
+//     margin-top: 10px;
+//     display: flex;
+//     justify-content: center;
+//   }
+//   .img-box {
+//     height: 200px;
+//     overflow: hidden;
+//   }
+//   img {
+//     height: 200px;
+//   }
+
+
+p{
+  font-weight: 300;
+ }
+
+ ion-toolbar{
+  --background: #f79e1b;
+}

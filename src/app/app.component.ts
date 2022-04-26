@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  image="../../../assets/images/profil.png";
+  //image="../../../assets/images/profil.png";
  
   constructor(
     private platform: Platform,
@@ -26,11 +26,11 @@ export class AppComponent {
       this.splashScreen.hide();
       //localStorage.setItem('image',this.image);
       //this.image="../../../assets/images/profil.png";
-      if (this.image!="../../../assets/images/profil.png"){
-        this.image = localStorage.getItem('image');
-      }else{
-        this.image="../../../assets/images/profil.png"
-      }
+      // if (this.image!="../../../assets/images/profil.png"){
+      //   this.image = localStorage.getItem('image');
+      // }else{
+      //   this.image="../../../assets/images/profil.png"
+      // }
      
     });
   }

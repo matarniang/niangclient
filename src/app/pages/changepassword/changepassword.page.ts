@@ -96,7 +96,7 @@ state: 'start' | 'stop' = 'stop';
           setInterval(() => {
             this.isEnabled(enabled =>{
               if (this.isActivated){
-                //this.stopTimer();
+                this.stopTimer();
                 //le compte vient d'être activé
                 this.hasPassword = false;
               }
@@ -129,7 +129,7 @@ state: 'start' | 'stop' = 'stop';
       this.authservice.confirmpassword(new MaladoRequest('', '','',this.passwordChamp,this.loginAd)).subscribe(
         (data) =>{
           console.log(data)
-          localStorage.setItem('loginAd', this.loginField)
+          localStorage.setItem('loginAd', this.loginAd)
           this.router.navigate(['dashboard2'])
           
         },

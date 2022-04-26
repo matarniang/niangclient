@@ -1,32 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { DemandeRequest } from 'src/app/models/demandeRequest.model';
 import { AuthService } from 'src/app/services/auth.service';
+
 @Component({
   selector: 'app-dashboard2',
   templateUrl: './dashboard2.page.html',
   styleUrls: ['./dashboard2.page.scss'],
 })
 export class Dashboard2Page implements OnInit {
-  image='';
-  public menustatus: any;
-  constructor(private router: Router,private authservice : AuthService,private menu: MenuController,private http: HttpClient) { }
+  isAlertDanger=false;
+  isAlertSuccess=false;
+  alertMsg="";
+  loginad= localStorage.getItem('loginAd');
+  public menustatus: boolean;
+  constructor(private router: Router,
+    private authservice : AuthService,
+    private menu: MenuController, 
+    private alertCtrl : AlertController
+    ) { }
   ngOnInit() {
     setInterval( () =>{
-      this.getImage();
-    },0);
-  }
-
-  getImage(){
-    this.image=localStorage.getItem('image');
+      if((this.isAlertDanger==true )||(this.isAlertSuccess==true)){
+        this.isAlertDanger=false;
+        this.isAlertSuccess=false;
+      }
+    },10000);
   }
 
   openCustom() {
     this.menu.enable(true, 'main-menu');
     this.menu.open('main-menu');
+  }
+  closeCupstom(){
+    this.menu.close('main-menu');
   }
 
   settings
@@ -38,6 +47,12 @@ export class Dashboard2Page implements OnInit {
   }
   nessicoPage(){
     this.router.navigate(['nessico'])
+  }
+  assistance(){
+    this.router.navigate(['assistance'])
+  }
+  historique(){
+    this.router.navigate(['historique'])
   }
 
   oraclePage(){
@@ -69,34 +84,52 @@ export class Dashboard2Page implements OnInit {
     this.router.navigate(['connexion'])
   }
 
-  demande(action:string,application:string,loginad:string,password:string){
-    this.authservice.demande(new DemandeRequest(action, application, loginad, password)).subscribe( 
-    //next en cas de success
-    (data: string) =>{
-      //Aller a la page suivante 
-      console.log(data)
-      //localStorage.setItem('loginAd',this.loginField);
-      
-    },
-    //  en cas error 
-    (error) =>{
-      // if(error.status==404){
-        console.log(error)
-        
-      //   this.alertMsg="loginad n'existe pas dans la base"
-      //   this.isAlert = true;
-      // }
-      // else if (error.status==500){
-      //   this.alertMsg="loginad obligatoir"
-      //   this.isAlert = true;
-      // }
-      // else{
-      //   this.alertMsg="verifier votre connexion"
-      //   this.isAlert = true;
-      // }
-    }
-  )
-} 
+async presentPrompt(action:string,application:string,int :number,message:string) {
+ await this.alertCtrl.create({
+
+    header:"Compte "+application,
+    //cssClass:"rgb(247,247,247)",
+    cssClass: 'alertDanger',
+    subHeader:"",
+    message:"<small>"+message+"</small>",
+    inputs: [
+      {
+        name: 'password',
+        placeholder: 'mot de passe',
+        type: 'text',  
+      }
+    ],
+    
+    buttons: [
+      {
+        text: 'annuler',
+        role: 'cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'soumettre',
+        handler: data => {
+  
+          this.authservice.demande(new DemandeRequest(action, application, this.loginad,int,data.password)).subscribe( 
+            (data: string) =>{
+              console.log(data)
+              this.alertMsg="Votre demande a ete bien enregistrer merci"
+              this.isAlertSuccess = true;
+              
+            },
+            (error) =>{
+              console.log(error)
+                this.alertMsg="verifier votre connexion"
+                this.isAlertDanger = true;
+            }
+          )
+        }
+      }
+    ]
+  }).then(data => data.present());
+}
 
 
 }

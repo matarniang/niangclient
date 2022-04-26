@@ -27,3 +27,7 @@
 @import "~@ionic/angular/css/flex-utils.css";
 @import "./theme/variables.scss";
 
+ion-content { 
+    --background:rgb(247,247,247); 
+}
+

@@ -1,5 +1,5 @@
 <!-- <app-sidebar></app-sidebar> -->
-<ion-content class="mainbackground">
+<ion-content class="mainbackground" [fullscreen]="true">
     <div class="header">
         <ion-toolbar>
         <div class="container">
@@ -14,11 +14,18 @@
 <div class="container">
 <div class="body">
 <div class="profile-box">
-<div class="top">
-<div class="pic"><a (click)="addPhoto()"><img [src]="image" class="w-100"/></a></div>
+<div class="top">  
+<div class="pic"><img src="../../../assets/images/profil.png" class="w-100"/></div>
+<!-- <div class="pic"><a (click)="addPhoto()"><img [src]="image" class="w-100"/></a></div> -->
+<!-- <div class="container"> 
+    <div class="outer" 
+      [ngStyle]="{'background-image' : 'url(' + image + ')'}"> 
+        <div class="inner" (click)="openOptionSelection()"> 
+           <ion-icon name="camera" class="camera-icon"></ion-icon> 
+        </div> 
+     </div> 
+</div>  -->
 <div class="name">{{ Userdata.nom }} {{ Userdata.prenom }}</div>
-
-<!-- <div class="name"> Niang Astou</div> -->
 <div class="location">Dakar, SENEGAl</div>
 </div>
 <div class="bottom">

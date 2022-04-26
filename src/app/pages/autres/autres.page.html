@@ -1,4 +1,51 @@
-<ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-label style="font-weight: 300;font-size: 2em;">
+        HISTORIQUE
+        <!-- <p style="font-weight: 300;color: #433465 ;">{{today | date:'fullDate'}}</p> -->
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="mainbackground">
+  <ion-card *ngFor="let item of todoList;" class="ion-margin">
+    <ion-card-header>
+      <ion-card-subtitle [style.color]="item['satus'] === 'i' ? 'red' : (item['satus'] === 'ok' ? 'green' : 'orange')">
+        {{item['action']}} {{item['application']}}
+      </ion-card-subtitle>
+      <ion-item>
+        <ion-icon *ngIf="item['satus'] === 'i'" color="danger" size="small" name="ellipse"></ion-icon>
+        <ion-icon *ngIf="item['satus'] === 'ok'" color="success" size="small" name="ellipse"></ion-icon>
+        <ion-icon *ngIf="item['satus'] === 'e'" color="warning" size="small" name="ellipse"></ion-icon>
+        <ion-label> {{ item['retour']}}</ion-label>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Date creation {{item['date_insertion'] }}</ion-label>
+    </ion-card-content>
+    <ion-row>
+      <ion-item button (click)="update(item)">
+        <ion-icon name="create-outline"></ion-icon>
+        <p>Update</p>
+      </ion-item>
+
+      <ion-item button (click)="delete(item.key)">
+        <ion-icon name="trash-outline"></ion-icon>
+        <p>Cancel</p>
+      </ion-item>
+    </ion-row>
+  </ion-card>
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addNewItem()">
+      <ion-icon name="exit"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+</ion-content>
+
+
+
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>autres</ion-title>
   </ion-toolbar>
@@ -21,4 +68,4 @@
   </div>
 
 </ion-content>
-
+ -->

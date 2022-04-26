@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
 import { MaladoRequest } from 'src/app/models/maladoRequest.model';
 import { AuthService } from 'src/app/services/auth.service';
-//import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 
 
 @Component({
@@ -17,18 +15,15 @@ export class LoginAdPage implements OnInit {
   alertMsg="merci de derifier"
   constructor(private router : Router,
     private authservice : AuthService,
-    private alerteCtrl : AlertController,
-    private loadingCtrl : LoadingController
+  
    ) {}
 
   ngOnInit() {
   }
-
   AuthentificationPage()
   {
    this.router.navigate(['connexion'])
   }
-  
   loginad(){
       this.authservice.loginad(new MaladoRequest('', '', '', '', this.loginField)).subscribe( 
       //next en cas de success
@@ -39,7 +34,6 @@ export class LoginAdPage implements OnInit {
         localStorage.setItem('loginAd',this.loginField);
         //this.show()
         this.router.navigate(['changepassword'])
- 
       },
       //  en cas error 
       (error) =>{

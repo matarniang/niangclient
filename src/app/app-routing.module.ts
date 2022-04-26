@@ -104,7 +104,19 @@ const routes: Routes = [
   {
     path: 'menu',
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
+  },  {
+    path: 'historique',
+    loadChildren: () => import('./pages/historique/historique.module').then( m => m.HistoriquePageModule)
   },
+  {
+    path: 'assistance',
+    loadChildren: () => import('./pages/assistance/assistance.module').then( m => m.AssistancePageModule)
+  },
+  {
+    path: 'test-code',
+    loadChildren: () => import('./pages/test-code/test-code.module').then( m => m.TestCodePageModule)
+  },
+
 
 
   

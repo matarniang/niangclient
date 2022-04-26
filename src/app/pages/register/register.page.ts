@@ -18,11 +18,18 @@ export class RegisterPage implements OnInit {
   userIcon = 'person'
   isAlert=false;
   alertMsg="coucou"
+  loader=false;
   
   constructor(private router: Router,
   private authservice : AuthService,) { }
 
   ngOnInit() {
+   
+    setInterval( () =>{
+      if(this.isAlert==true){
+        this.isAlert=false;
+      }
+    },10000);
   }
 
 
@@ -47,11 +54,14 @@ homePage()
 Connexion(){
   this.authservice.connexion(new MaladoRequest('', '', '', this.passwordField, this.loginadField)).subscribe( 
     //next en cas de success
+    
     (data) =>{
+        this.loader=true;
         this.donner = JSON.parse(data);
         console.log(this.donner)
         localStorage.setItem('loginAd', this.loginadField)
         if (this.donner['code']==200) {
+          this.loader=false;
           this.router.navigate(['dashboard2'])
         }else
         this.router.navigate(['connexion'])

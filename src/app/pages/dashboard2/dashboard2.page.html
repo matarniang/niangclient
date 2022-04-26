@@ -1,34 +1,37 @@
-<ion-content class="mainbackground">
+<ion-content class="mainbackground" (click)="closeCupstom()">
   <div class="header">
     <ion-toolbar>
   <div class="container">
   <div class="row" >
   <div class="col-8">
     <div class="title" style="float: left; margin-top:5px"><a (click)="openCustom()"><ion-menu-button></ion-menu-button></a></div>
-    <!-- <ion-buttons slot="start">
-      <ion-menu-button menu="main-menu"></ion-menu-button>
-    </ion-buttons> -->
   </div>
-  <div class="col-4 text-right"><a class="pulse-animation notification-btn" (click)="notificationsPage()"><i class="far fa-bell"></i></a> <div class="profile-pic" (click)="profilePage()"><img [src]="image" class="width-100"/></div></div>
+  <div class="col-4 text-right"><a class="pulse-animation notification-btn" (click)="notificationsPage()"><i class="far fa-bell"></i></a> <div class="profile-pic" (click)="profilePage()"><img src="../../../assets/images/profil.png" class="width-100"/></div></div>
   </div>
   </div>
 </ion-toolbar>
   </div>
+  <div *ngIf="isAlertDanger" class="alert alert-danger" role="alert">
+    {{alertMsg}}
+  </div>
+  <div *ngIf="isAlertSuccess" class="alert alert-success" role="alert">
+    {{alertMsg}}
+  </div>
   <div class="search-box">
   <div class="container position-relative">
   <form>
-  <input type="search" placeholder="Search here" id="search"/>
+  <input type="search" placeholder="Rechercher" id="search"/>
   <button type="submit"><i class="fa fa-search"></i></button>
   </form>
   </div>
   </div>
-  <div class="head-title">
+  <!-- <div class="head-title"> -->
   <div class="head-title"><div class="container"><h3>Mes Favoris</h3></div></div>
   <ion-grid>
     <ion-row>
       <ion-col size="4">
-        <a (click)="demande('reset','oracle','STG_niang0001','orange@2022')">
-        <ion-card color="medium">
+        <a (click)="presentPrompt('reset','oracle',0,'Saisir votre mot de passe oracle')">
+        <ion-card color="white">
           <ion-icon src="../../../assets/images/password.svg"></ion-icon>
           <ion-text>
             <small><br>reset<br>
@@ -39,7 +42,8 @@
       </a>
       </ion-col>
       <ion-col size="4">
-        <ion-card color="medium">
+        <a (click)="presentPrompt('reset','windows',0,'Saisir votre mot de passe AD')">
+        <ion-card color="white">
           <ion-icon src="../../../assets/images/password.svg"></ion-icon>
           <ion-text>
             <small><br>reset<br>
@@ -47,65 +51,60 @@
               AD</small>
           </ion-text>
         </ion-card>
+      </a>
       </ion-col>
       <ion-col size="4">
-        <ion-card color="medium">
+        <a (click)="presentPrompt('deverrouillage','Nessico',0,'Saisir votre mot de passe Nessico')">
+          <ion-card color="white">
           <ion-icon src="../../../assets/images/password.svg"></ion-icon>
           <ion-text>
-            <small><br>Deverrouillage<br>
+            <small><br><small>Deverrouillage</small><br>
               compte<br>
               Nessico</small> 
           </ion-text>
         </ion-card>
+      </a>
       </ion-col>
     </ion-row>
   </ion-grid>
-  </div>
-  
+  <!-- </div> -->
   <div class="body">
   <div class="head-title"><div class="container"><h3>Mes Services</h3></div></div>
   <ion-grid>
     <ion-row>
-      
       <ion-col size="4">
         <a (click)="windowsPage()">
-        <ion-card color="medium">
+        <ion-card color="white">
           <ion-icon src="../../../assets/images/windows-logo-svgrepo-com.svg"></ion-icon>
           <ion-text>
-            <!-- <h6>Windows</h6> -->
            <p> <small>windows</small></p>
           </ion-text>
         </ion-card>
       </a>
       </ion-col>
-  
       <ion-col size="4">
         <a (click)="nessicoPage()">
-        <ion-card color="medium">
+        <ion-card color="white">
           <ion-icon src="../../../assets/images/services.svg"></ion-icon>
           <ion-text>
-            <!-- <h6>Nessico</h6> -->
            <p> <small>Nessico</small></p>
           </ion-text>
         </ion-card>
       </a>
       </ion-col>
-
       <ion-col size="4">
         <a (click)="oraclePage()">
-        <ion-card color="medium">
+        <ion-card color="white">
           <ion-icon src="../../../assets/images/oracle.svg"></ion-icon>
           <ion-text>
-            <!-- <h6>Oracle</h6> -->
             <p><small>Oracle</small></p>
           </ion-text>
         </ion-card>
       </a>
       </ion-col>
-
       <ion-col size="4">
         <a (click)="simplissimoPage()">
-        <ion-card color="medium">
+        <ion-card color="white">
           <ion-icon src="../../../assets/images/services.svg"></ion-icon>
           <ion-text>
             <p><small>Simplissimo</small></p>
@@ -116,7 +115,7 @@
 
       <ion-col size="4">
         <a (click)="gaiaPage()">
-        <ion-card color="medium">
+        <ion-card color="white">
           <ion-icon src="../../../assets/images/services.svg"></ion-icon>
           <ion-text>
             <p><small>Gaia</small></p>
@@ -126,7 +125,7 @@
       </ion-col>
       <ion-col size="4">
         <a (click)="autresPage()">
-        <ion-card color="danger">
+        <ion-card color="white">
           <ion-icon src="../../../assets/images/outlook.svg"></ion-icon>
           <ion-text>
             <p><small>Outlook</small></p>
@@ -148,15 +147,13 @@
           <ion-item>
            <a (click)="setting()"> <ion-icon name="settings"></ion-icon>Parametre</a>
           </ion-item>
-          <!-- <ion-item>
-            <ion-icon name="person"></ion-icon>Profile
-          </ion-item> -->
+          
           <ion-item>
-            <ion-icon name="document"></ion-icon>Demande
+            <a (click)="historique()"> <ion-icon name="document"></ion-icon>Demande</a>
           </ion-item>
-          <!-- <ion-item>
-            <ion-icon name="people"></ion-icon>Guide d'uttilisateur
-          </ion-item> -->
+          <ion-item>
+            <a (click)="assistance()"><ion-icon name="people"></ion-icon>Assistance</a>
+          </ion-item>
           <ion-item>
             <a (click)="AuthentificationPage()"><ion-icon name="exit-outline"></ion-icon>Se deconnecter</a> 
           </ion-item>

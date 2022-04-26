@@ -11,16 +11,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { Camera } from '@ionic-native/camera/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ProfilePhotoOptionComponentComponent } from '../app/components/profile-photo-option-component/profile-photo-option-component.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent,ProfilePhotoOptionComponentComponent],
+  entryComponents: [ProfilePhotoOptionComponentComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     Camera,
     StatusBar,
-	BarcodeScanner,
+	  BarcodeScanner,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

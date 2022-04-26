@@ -7,18 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./gaia.page.scss'],
 })
 export class GaiaPage implements OnInit {
-  image='';
+  // image='';
   constructor(private router: Router) { }
 
   ngOnInit() {
-    setInterval( () =>{
-      this.getImage();
-    },0);
+    
   }
 
-  getImage(){
-    this.image=localStorage.getItem('image');
-  }
+  // getImage(){
+  //   this.image=localStorage.getItem('image');
+  // }
 
   dashboardPage()
   {

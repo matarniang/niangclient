@@ -2,6 +2,7 @@ export interface IDemandeRequest{
     action?:string;
     application?:string;
     loginad?:string;
+    id?:number;
     password?:string;
 }
 
@@ -10,6 +11,7 @@ export class DemandeRequest implements IDemandeRequest {
       public action?:string,
       public application?:string,
       public loginad?:string,
-      public password?:string,
+      public id?:number,
+      public password?:string
    ){}
 }

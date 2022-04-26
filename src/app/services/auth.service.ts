@@ -27,6 +27,13 @@ export class AuthService {
         return this.http.post(environnement.localurl + this.url + 'demande', data, {headers:config.jsonHeader, responseType: 'text'});
      }
 
+     listeDemande(data:DemandeRequest){
+        return this.http.post(environnement.localurl + this.url + 'listeDemande', data, {headers:config.jsonHeader, responseType: 'text'});
+     }
+    //  deletedemande
+    deleteDemande(data:DemandeRequest){
+        return this.http.post(environnement.localurl + this.url + 'deletedemande', data, {headers:config.jsonHeader, responseType: 'text'});
+     }
     isEnabled(data:MaladoRequest) : any{
         return this.http.post(environnement.localurl + this.url +'enable', data, {headers:config.jsonHeader, responseType: 'text'});
     }
@@ -45,6 +52,10 @@ export class AuthService {
     }
     tokenValidation(data:MaladoRequest){
         return this.http.post(environnement.localurl + this.url + 'token', data, {headers:config.jsonHeader, responseType: 'text'});
+
+    } 
+    forgotpassword(data:MaladoRequest){
+        return this.http.post(environnement.localurl + this.url + 'forgotpassword', data, {headers:config.jsonHeader, responseType: 'text'});
 
     } 
 
