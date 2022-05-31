@@ -3,8 +3,7 @@ export interface IMaladoRequest{
 	 lastName?:string;
      email?:string;
      password?:string;
-     loginad?:string;
-
+     username?:string;
 }
 
 export class MaladoRequest implements IMaladoRequest {
@@ -13,6 +12,6 @@ export class MaladoRequest implements IMaladoRequest {
        public lastName?:string,
        public email?:string,
        public password?:string,
-       public loginad?:string,
+       public username?:string,
     ){}
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { async } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { MaladoRequest } from 'src/app/models/maladoRequest.model';
+import { MaladoRequest } from 'src/model/maladoRequest.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { BehaviorSubject } from 'rxjs';
 const circleR = 80;

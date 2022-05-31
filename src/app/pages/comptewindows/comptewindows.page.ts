@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MaladoRequest } from 'src/app/models/maladoRequest.model';
+import { MaladoRequest } from 'src/model/maladoRequest.model';
 
 @Component({
   selector: 'app-comptewindows',

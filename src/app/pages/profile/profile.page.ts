@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
-import { MaladoRequest } from 'src/app/models/maladoRequest.model';
+import { MaladoRequest } from 'src/model/maladoRequest.model';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ModalController } from '@ionic/angular';
 
@@ -15,27 +15,23 @@ import { ProfilePhotoOptionComponentComponent  } from 'src/app/components/profil
 })
 export class ProfilePage implements OnInit {
  image='https://www.kasterencultuur.nl/editor/placeholder.jpg';
-  loginAd= localStorage.getItem('loginAd');
+  loginad= localStorage.getItem('loginad');
 
   Userdata = {
-    nom: '',
-    prenom: '',
-    email: '',
-    login: ''
+    // nom: '',
+    // prenom: '',
+    // email: '',
+    login:  ''
   };
 
   constructor(private modalController: ModalController,private router: Router,private http: HttpClient,private authservice:AuthService,private camera: Camera) { }
  
   ngOnInit() {
-    
-    setInterval( () =>{
-      
-      this.getataUser()
-    },0);
+    // setInterval( () =>{
+      this.getataUser();
+    // },0);
   }
-//  getImage(){
 
- 
   dashboardPage()
   {
 	   this.router.navigate(['dashboard2'])
@@ -46,18 +42,18 @@ export class ProfilePage implements OnInit {
   }
 
   getataUser() {
-    this.authservice.dataUser(new MaladoRequest('', '', '', '', this.loginAd)).subscribe( 
-      (data)=>{
-       //console.log(data)
-       data = JSON.parse(data);
-       console.log(data)
-       this.Userdata.nom = data['firstName'];
-       this.Userdata.prenom = data['lastName'];
-       this.Userdata.email = data['email'];
-       this.Userdata.login = data['loginad'];
+  //   this.authservice.dataUser(new MaladoRequest('', '', '', '', this.loginAd)).subscribe( 
+  //     (data)=>{
+  //      //console.log(data)
+  //      data = JSON.parse(data);
+  //      console.log(data)
+  //      this.Userdata.nom = data['firstName'];
+  //      this.Userdata.prenom = data['lastName'];
+  //      this.Userdata.email = data['email'];
+       this.Userdata.login = localStorage.getItem('loginad');
 
-      }
-    )
+  //     }
+  //   )
   }
 
   async openOptionSelection() {

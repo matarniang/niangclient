@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { MaladoRequest } from 'src/app/models/maladoRequest.model';
+import { MaladoRequest } from 'src/model/maladoRequest.model';
 
 @Component({
   selector: 'app-notifications',
@@ -21,24 +21,24 @@ export class NotificationsPage implements OnInit {
 
   constructor(private router: Router,private authservice:AuthService) { }
   ngOnInit() {
-    setInterval( () =>{
-      this.getataUser()
-    },0);
+    // setInterval( () =>{
+    //   this.getataUser()
+    // },0);
   }
-  getataUser() {
-    this.authservice.dataUser(new MaladoRequest('', '', '', '', this.loginAd)).subscribe( 
-      (data)=>{
-       //console.log(data)
-       data = JSON.parse(data);
-       console.log(data)
-       this.Userdata.nom = data['firstName'];
-       this.Userdata.prenom = data['lastName'];
-       //this.Userdata.email = data['email'];
-       //this.Userdata.login = data['loginad'];
+  // getataUser() {
+  //   this.authservice.dataUser(new MaladoRequest('', '', '', '', this.loginAd)).subscribe( 
+  //     (data)=>{
+  //      //console.log(data)
+  //      data = JSON.parse(data);
+  //      console.log(data)
+  //      this.Userdata.nom = data['firstName'];
+  //      this.Userdata.prenom = data['lastName'];
+  //      //this.Userdata.email = data['email'];
+  //      //this.Userdata.login = data['loginad'];
 
-      }
-    )
-  }
+  //     }
+  //   )
+  // }
 
   dashboardPage()
   {

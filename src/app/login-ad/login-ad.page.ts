@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MaladoRequest } from 'src/app/models/maladoRequest.model';
+import { MaladoRequest } from 'src/model/maladoRequest.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -27,13 +27,13 @@ export class LoginAdPage implements OnInit {
   loginad(){
       this.authservice.loginad(new MaladoRequest('', '', '', '', this.loginField)).subscribe( 
       //next en cas de success
-      (data: string) =>{
+      (data) =>{
         //Aller a la page suivante 
         console.log("Login valide")
         console.log(data)
-        localStorage.setItem('loginAd',this.loginField);
+        // localStorage.setItem('loginAd',this.loginField);
         //this.show()
-        this.router.navigate(['changepassword'])
+        // this.router.navigate(['changepassword'])
       },
       //  en cas error 
       (error) =>{

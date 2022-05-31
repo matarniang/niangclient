@@ -1,7 +1,7 @@
  import { Component,OnInit} from '@angular/core';
  import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
  import { LoadingController, AlertController } from '@ionic/angular';
- import { DemandeRequest } from 'src/app/models/demandeRequest.model';
+ import { DemandeRequest } from 'src/model/demandeRequest.model';
 import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-autres',

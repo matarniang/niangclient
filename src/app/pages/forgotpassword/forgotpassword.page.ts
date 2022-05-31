@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MaladoRequest } from 'src/app/models/maladoRequest.model';
+import { MaladoRequest } from 'src/model/maladoRequest.model';
 import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-forgotpassword',
@@ -27,35 +27,35 @@ export class ForgotpasswordPage implements OnInit {
    this.router.navigate(['connexion'])
   }
   
-  forgotpassword(){
-      this.authservice.forgotpassword(new MaladoRequest('', '', this.emailField, '',this.loginAd)).subscribe( 
-      //next en cas de success
-      (data: string) =>{
-        //Aller a la page suivante 
-        // console.log("Login valide")
-        console.log(data)
-        localStorage.setItem('loginAd',this.loginAd);
-        //this.show()
-        this.router.navigate(['changepassword'])
+  // forgotpassword(){
+  //     this.authservice.forgotpassword(new MaladoRequest('', '', this.emailField, '',this.loginAd)).subscribe( 
+  //     //next en cas de success
+  //     (data: string) =>{
+  //       //Aller a la page suivante 
+  //       // console.log("Login valide")
+  //       console.log(data)
+  //       localStorage.setItem('loginAd',this.loginAd);
+  //       //this.show()
+  //       this.router.navigate(['changepassword'])
  
-      },
-      //  en cas error 
-      (error) =>{
-        if(error.status==404){
+  //     },
+  //     //  en cas error 
+  //     (error) =>{
+  //       if(error.status==404){
           
-          this.alertMsg="loginad n'existe pas dans la base"
-          this.isAlert = true;
-        }
-        else if (error.status==500){
-          this.alertMsg="loginad obligatoir"
-          this.isAlert = true;
-        }
-        else{
-          this.alertMsg="verifier votre connexion"
-          this.isAlert = true;
-        }
-      }
-    )
-  }  
+  //         this.alertMsg="loginad n'existe pas dans la base"
+  //         this.isAlert = true;
+  //       }
+  //       else if (error.status==500){
+  //         this.alertMsg="loginad obligatoir"
+  //         this.isAlert = true;
+  //       }
+  //       else{
+  //         this.alertMsg="verifier votre connexion"
+  //         this.isAlert = true;
+  //       }
+  //     }
+  //   )
+  // }  
 
 }
