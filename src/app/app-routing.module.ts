@@ -116,7 +116,19 @@ const routes: Routes = [
   {
     path: 'test-code',
     loadChildren: () => import('./pages/test-code/test-code.module').then( m => m.TestCodePageModule)
+  },  {
+    path: 'demande-windows',
+    loadChildren: () => import('./pages/demande-windows/demande-windows.module').then( m => m.DemandeWindowsPageModule)
   },
+  {
+    path: 'demande-oracle',
+    loadChildren: () => import('./pages/demande-oracle/demande-oracle.module').then( m => m.DemandeOraclePageModule)
+  },
+  {
+    path: 'demande-nessico',
+    loadChildren: () => import('./pages/demande-nessico/demande-nessico.module').then( m => m.DemandeNessicoPageModule)
+  },
+
 
 
 

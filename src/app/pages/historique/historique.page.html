@@ -7,37 +7,23 @@
   </div>
   </div>
   <div class="body">
-    <ion-card *ngFor="let item of todoList;" class="mainbackground">
-      <ion-card-header class="mainbackground">
-        <ion-card-subtitle [style.color]="item['satus'] === 'i' ? 'red' : (item['satus'] === 'ok' ? 'green' : 'orange')">
-          {{item['action']}} {{item['application']}}
-        </ion-card-subtitle>
-        <ion-item class="mainbackground">
-          <ion-icon *ngIf="item['satus'] === 'i'" color="danger" size="small" name="document"></ion-icon>
-          <ion-icon *ngIf="item['satus'] === 'ok'" color="success" size="small" name="document"></ion-icon>
-          <ion-icon *ngIf="item['satus'] === 'e'" color="warning" size="small" name="document"></ion-icon>
-          <ion-label *ngIf="item['satus'] === 'i'" color="danger"><small>Demande pas encore prise en charge</small></ion-label>
-          <ion-label *ngIf="item['satus'] === 'ok'" color="success"><small>Demande traiter avec success</small></ion-label>
-          <ion-label *ngIf="item['satus'] === 'e'" color="warning"><small>Demande en cour de traitement </small></ion-label>
-        </ion-item>
-        <ion-item class="mainbackground">
-          <ion-icon *ngIf="item['satus'] === 'i'" color="danger" size="small" name="mail-unread"></ion-icon>
-          <ion-icon *ngIf="item['satus'] === 'ok'" color="success" size="small" name="mail-unread"></ion-icon>
-          <ion-icon *ngIf="item['satus'] === 'e'" color="warning" size="small" name="mail-unread"></ion-icon>
-          <ion-label *ngIf="item['satus'] === 'i'" color="danger"><small>{{item['retour']}}</small></ion-label>
-          <ion-label *ngIf="item['satus'] === 'ok'" color="success"><small>{{item['retour']}}</small></ion-label>
-          <ion-label *ngIf="item['satus'] === 'e'" color="warning"><small>{{item['retour']}}</small></ion-label>
-        </ion-item>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-label>Date creation : {{item['date_insertion'] }}</ion-label>
-      </ion-card-content>
-      <ion-row >
-        <ion-item button (click)="deleteDemande(item['id'])" class="mainbackground">
-          <ion-icon name="trash-outline" style="color: black;">Cancel</ion-icon>  
-        </ion-item>
-      </ion-row>
-    </ion-card>
+    <div class="settings">
+      <div class="box" (click)="demandeOraclePage()">
+        <!-- <ion-icon src="../../../assets/images/oracle.svg"></ion-icon> -->
+      <div class="float-left"><span class="label"> Oracle</span></div>
+      <div class="float-right"><span class="value"><i class="fas fa-angle-right"></i></span></div>
+      </div>
+      <div class="box" (click)="demandeNessicoPage()">
+        <!-- <ion-icon src="../../../assets/images/services.svg"></ion-icon> -->
+      <div class="float-left"><span class="label">Nessico</span></div>
+      <div class="float-right"><span class="value" ><i class="fas fa-angle-right"></i></span></div>
+      </div>
+      <div class="box" (click)="demandeWindowsPage()">
+        <!-- <ion-icon src="../../../assets/images/windows-logo-svgrepo-com.svg"></ion-icon> -->
+        <div class="float-left"><span class="label">Windows</span></div>
+        <div class="float-right"><span class="value" ><i class="fas fa-angle-right"></i></span></div>
+        </div>
+      </div>
   </div>
   </div>
-  </ion-content>
+</ion-content>

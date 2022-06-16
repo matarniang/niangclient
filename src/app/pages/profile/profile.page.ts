@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
-import { MaladoRequest } from 'src/model/maladoRequest.model';
+import { getToken } from 'src/model/getToken.model';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ModalController } from '@ionic/angular';
 
@@ -16,6 +16,8 @@ import { ProfilePhotoOptionComponentComponent  } from 'src/app/components/profil
 export class ProfilePage implements OnInit {
  image='https://www.kasterencultuur.nl/editor/placeholder.jpg';
   loginad= localStorage.getItem('loginad');
+  token= localStorage.getItem('token');
+
 
   Userdata = {
     // nom: '',
@@ -42,18 +44,18 @@ export class ProfilePage implements OnInit {
   }
 
   getataUser() {
-  //   this.authservice.dataUser(new MaladoRequest('', '', '', '', this.loginAd)).subscribe( 
-  //     (data)=>{
-  //      //console.log(data)
-  //      data = JSON.parse(data);
-  //      console.log(data)
-  //      this.Userdata.nom = data['firstName'];
-  //      this.Userdata.prenom = data['lastName'];
-  //      this.Userdata.email = data['email'];
+    // this.authservice.userInfo(new getToken(this.token)).subscribe( 
+      // (data)=>{
+       //console.log(data)
+      //  data = JSON.parse(data);
+      //  console.log(data)
+      //  this.Userdata.nom = data['firstName'];
+      //  this.Userdata.prenom = data['lastName'];
+      //  this.Userdata.email = data['email'];
        this.Userdata.login = localStorage.getItem('loginad');
 
-  //     }
-  //   )
+      // }
+    // )
   }
 
   async openOptionSelection() {

@@ -8,7 +8,6 @@
     </base-config>
 
 <domain-config cleartextTrafficPermitted="true">
-
     <domain includeSubdomains="true">localhost</domain>
 </domain-config>
 

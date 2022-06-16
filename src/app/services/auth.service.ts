@@ -1,6 +1,9 @@
 import { Injectable } from "@angular/core";
 import { MaladoRequest } from "../../model/maladoRequest.model";
 import { DemandeRequest } from "../../model/demandeRequest.model";
+import { deleteDemandeRequest} from '../../model/deleteDemandeRequest.model';
+import { getToken} from '../../model/getToken.model';
+
 import { environnement } from "../shared/environnement";
 import { config } from "../config/config";
 import { HttpClient, HttpResponse } from '@angular/common/http';
@@ -38,18 +41,30 @@ export class AuthService {
      demandeNessico(data:DemandeRequest){
         return this.http.post(environnement.localurl + this.pointnessico + 'demande-nessicos', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
      }
-     getDemande(data:DemandeRequest){
+     getDemandeOracle(data:DemandeRequest){
         return this.http.post(environnement.localurl + this.pointoracle + 'demande-oracles-login', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
      }
-    deleteDemande(data:DemandeRequest){
-        return this.http.post(environnement.localurl + this.url + 'deletedemande', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
+    deleteDemandeOracle(data:deleteDemandeRequest){
+        return this.http.post(environnement.localurl + this.pointoracle + 'demande-oracles-delete', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
+     }
+     getDemandeNessico(data:DemandeRequest){
+        return this.http.post(environnement.localurl + this.pointnessico + 'demande-nessicos-login', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
+     }
+    deleteDemandeNessico(data:deleteDemandeRequest){
+        return this.http.post(environnement.localurl + this.pointnessico + 'demande-nessicos-delete', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
+     }
+     getDemandeWindows(data:DemandeRequest){
+        return this.http.post(environnement.localurl + this.pointwindows + 'demande-windows-login', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
+     }
+    deleteDemandeWindows(data:deleteDemandeRequest){
+        return this.http.post(environnement.localurl + this.pointwindows + 'demande-windows-delete', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
      }
     isEnabled(data:MaladoRequest) : any{
-        return this.http.post(environnement.localurl + this.url +'enable', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
+        return this.http.post(environnement.localurl + this.url + 'enable', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
     }
-    // dataUser(data:MaladoRequest){
-    //     return this.http.post(environnement.localurl + this.url +'maladoUser', data, {headers:config.jsonHeader, responseType: 'text'});
-    // }
+    userInfo(data:getToken){
+        return this.http.post(environnement.localurl + this.url +'userinfo', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
+    }
     passwordVerification(data:MaladoRequest) : any{
         return this.http.post(environnement.localurl + this.url +'passwordVerification', data, {headers:config.jsonHeader, responseType: 'text',observe: 'response'});
     }
